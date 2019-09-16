@@ -1,0 +1,20 @@
+{
+  "name": "lazy-voter",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "serverless.com",
+  "license": "MIT",
+  "devDependencies": {
+    "serverless-google-cloudfunctions": "*"
+  },
+  "dependencies": {
+    "actions-on-google": "^2.12.0",
+    "lazy-voter-geo": "file:lazy-voter-geo",
+    "lazy-voter-register": "file:lazy-voter-register",
+    "moment": "^2.24.0"
+  }
+}
