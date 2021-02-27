@@ -2,6 +2,9 @@
 
 const puppeteer = require('puppeteer');
 
+// Note - we're using Puppeteer to fill out the web form, but of course, it'd
+// be preferable to get access to a real api for checking voter registration.
+// At that point, this function becomes way simpler.
 const checkRegistration = async (details) => {
   let success = false;
   let browser = null;
@@ -15,7 +18,7 @@ const checkRegistration = async (details) => {
     // In prod, use Browserless service since running puppeteer via 
     // GCF is slow and a bit painful
     browser = await puppeteer.connect({
-      browserWSEndpoint: 'wss://chrome.browserless.io?token=3efd9618-4abd-45d0-899a-1ab06be0e7d4'+
+      browserWSEndpoint: `wss://chrome.browserless.io?token=${process.env.browserlessToken}`+
       '&--window-size=1920x1080' +
       '&--no-sandbox=true' +
       '&--disable-setuid-sandbox=true' +
@@ -27,8 +30,8 @@ const checkRegistration = async (details) => {
     let page = await browser.newPage();
     await page.goto('https://verify.vote.org');
 
-    // It's silly that vote.org requires an email, so this is temp workaround
-    const email = `jeff+${Math.floor(Math.random() * 100) + 1}@nighttrainconsulting.com`
+    // Vote.org requires an email (even though it's not needed), so this is temp workaround
+    const email = `test+${Math.floor(Math.random() * 100) + 1}@test-email.com`
     details.email = email;
 
     // Fill out all the fields

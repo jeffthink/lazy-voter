@@ -1,7 +1,7 @@
 'use strict';
 
 const googleMapsClient = require('@google/maps').createClient({
-  key: 'AIzaSyDWqFPxv4gn1cYRpGc6aZORKTFj6SUyj4E',
+  key: process.env.gmapsApiKey,
   Promise: Promise
 });
 
