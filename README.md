@@ -17,7 +17,7 @@ It leverages the Vote.org verify tool (by using the headless chrome Puppeteer li
 Some important considerations:
 
 1. This was created pretty quickly, and as such is pretty crufty from an engineering perspective - it'd need a fair bit more work (e.g. testing, CI, refactoring, etc.) to be viable in a real-world setting.
-2. I bet that it'd be harder to make the voice piece work well across a broad swath of names, addresses, accents, etc.
+2. I bet that it'd be harder to make the voice piece work well across a broad swath of names, addresses, accents, etc. It'll be important to ensure that if this were to move forward, that it'd work across a wide swath of user populations. The good news is that by working via text message, that goes a long way towards that goal!
 3. Although Google's Dialogflow technology is quite impressive, and I'm excited by the future of voice inputs, I've grown more and more reluctant to trust "big tech" in this sort of critical role. Future versions of this should look into alternative tools.
 
 ## Trying it out
@@ -47,7 +47,7 @@ Given the number of dependencies (see below), the set of directions to truly get
 
 ## Open Questions
 
-* Can we get things like name / address / etc. via some api from the phone (or another authentication approach)? Even better to leverage something like Login.org!
+* Can we get things like name / address / etc. via some api from the phone (or another authentication approach)? Even better to leverage something like Login.gov!
 * How do you enable a continous delivery environment with the various dependencies above?
 * Can Puppeteer be run performantly directly in GCF vs. using Browserless (see [this issue](https://github.com/GoogleChrome/puppeteer/issues/3120))?
 * Can we get access to an api for voter registration check vs. using web form to do so?
